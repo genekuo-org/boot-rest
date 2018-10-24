@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+
+files:
+  - source: target/bootrest-1.jar
+    destination: /home/ec2-user
+
+hooks:
+  BeforeInstall:
+    - location: scripts/stop-app.sh
+      timeout: 120
+  AfterInstall:
+    - location: scripts/start-app.sh
+      timeout: 120
+  ValidateService:
+    - location: scripts/validate-app.sh
+      timeout: 120
