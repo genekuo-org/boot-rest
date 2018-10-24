@@ -4,6 +4,7 @@ os: linux
 files:
   - source: target/bootrest-1.jar
     destination: /home/ec2-user
+    overwrite: yes
 
 hooks:
   BeforeInstall:
