@@ -1,2 +1,4 @@
 #!/bin/sh
-sudo service bootrest stop
+sudo status bootrest | grep -q '^bootrest start/running, process' \
+&& [[ $? -eq 0 ]] \
+&& sudo service bootrest stop || echo "App not started"
