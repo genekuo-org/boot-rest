@@ -1,4 +1,4 @@
 #!/bin/sh
-sudo chmod +x /home/ec2-user/bootrest-1.jar
-sudo ln -sf /home/ec2-user/bootrest-1.jar /etc/init.d/bootrest
-sudo service bootrest start
+cd /home/ec2-user/server
+sudo java -jar -Dserver.port=8080 \
+    *.jar > /dev/null 2> /dev/null < /dev/null &

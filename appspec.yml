@@ -4,15 +4,24 @@ os: linux
 files:
   - source: target/bootrest-1.jar
     destination: /home/ec2-user
-    overwrite: true
+
+permissions:
+  - object: /home/ec2-user
+    pattern: "*.jar"
+    owner: ec2-user
+    group: ec2-user
+    mode: 464
 
 hooks:
   BeforeInstall:
     - location: scripts/stop-app.sh
       timeout: 120
+      runas: ec2-user
   AfterInstall:
     - location: scripts/start-app.sh
       timeout: 120
+      runas: ec2-user
   ValidateService:
     - location: scripts/validate-app.sh
       timeout: 120
+      runas: ec2-user
