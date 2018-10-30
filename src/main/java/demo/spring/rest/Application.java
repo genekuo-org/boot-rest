@@ -17,7 +17,7 @@ public class Application {
 class GreetingController {
 	@GetMapping("/")
 	Greet greet() {
-		return new Greet("Hello World!");
+		return new Greet("Hello New World!");
 	}
 }
 
