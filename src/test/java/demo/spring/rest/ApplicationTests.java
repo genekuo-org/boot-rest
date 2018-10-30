@@ -26,7 +26,7 @@ public class ApplicationTests {
 	@Test
 	public void testSpringBootApp() throws JsonProcessingException, IOException {
 		String body = restTemplate.getForObject("/", String.class);
-		assertThat(new ObjectMapper().readTree(body).get("message").textValue()).isEqualTo("Hello New World!");	
+		assertThat(new ObjectMapper().readTree(body).get("message").textValue()).isEqualTo("Hello World!");	
 	}
 	 
 }
